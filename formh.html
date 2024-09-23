@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="./formh.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h2 id="hello-user">Seja bem vindo à HUSKY, falta pouco para você se tornar cliente.</h2>
+        </div>
+    </header>
+    <div id="form-user">
+        <form id="cadastro-user">
+            <a class="nomes">Nome</a>
+            <input type="text" id="txtNome" name="txtNome" placeholder="Digite seu nome"><br>
+            <span id="error-nome" class="input-error">Nome não preenchido ou incorreto. Revise.</span><br>
+            <a class="emails">E-mail</a>
+            <input type="text" id="txtEmail" name="txtEmail" placeholder="Digite seu e-mail"><br>
+            <span id="error-email" class="input-error">E-mail não preenchido ou incorreto. Revise.</span><br>
+            <button type="button" onclick="cadastroHusky()">Cadastrar</button>
+        </form>
+    </div>
+</body>
+<script>
+function cadastroHusky() {
+    document.getElementById("hello-user").innerHTML = "Revise os dados!";
+
+    var nome = document.getElementById("txtNome").value;
+    var email = document.getElementById("txtEmail").value;
+
+    if (nome.length == 0) {
+        document.getElementById("error-nome").style.display = "block";
+    } else {
+        document.getElementById("error-nome").style.display = "none";
+    }
+    
+    if (email.length == 0) {
+        document.getElementById("error-email").style.display = "block";
+    } else {
+        document.getElementById("error-email").style.display = "none";
+    }
+    
+    if (nome.length != 0 && email.length != 0) {
+        document.getElementById("hello-user").innerHTML = `Você entrou como ${nome}`;
+        document.getElementById("cadastro-user").style.display = "none";  
+        location.href="./husky.html";  
+    }
+}
+
+
+</script>
+</html>
